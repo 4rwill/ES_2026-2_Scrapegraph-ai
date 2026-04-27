@@ -23,3 +23,6 @@ Este diretorio agrupa os artefatos de automacao tecnica usados para verificar co
 
 A analise desta pasta foi utilizada para verificar o grau de objetividade e automacao dos controles de qualidade, com enfase em bloqueios efetivos no CI.
 
+## Conclusão
+As verificações automáticas existem mas não são exatamente otimizadas. Existem muitos problemas que podem passar despercebidos por conta das verificações estarem 'frouxas'. O check de lint não bloqueia e o check de testes não valida todos os testes, apenas os que não são de integração.
+
