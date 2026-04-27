@@ -30,13 +30,13 @@
 
 ### 3. Eixo 3 - Arquitetura e Modelagem
 * **Responsáveis:** Artur José e Eduardo Curcino
-* **O que fez:** 
-* **Onde procurou as informações:** 
+* **O que fez:** Realizou uma análise arquitetural profunda sob a ótica da área de Projeto e Construção do Produto (PJR). Mapeou a adoção do padrão Microkernel orquestrado por um DAG (Grafo Acíclico Direcionado), onde a classe BaseGraph atua como núcleo e as unidades lógicas (Nodes) como plug-ins independentes. Identificou também a substituição da passagem direta de parâmetros pelo padrão Blackboard (estado global compartilhado) e o uso do padrão Strategy (via ecossistema LangChain) para mitigar o Vendor Lock-in de provedores de IA. Por fim, evidenciou a estratégia de resiliência baseada em Fail-Fast, que privilegia a rastreabilidade e observabilidade de falhas sistêmicas.
+* **Onde procurou as informações:** A análise técnica foi fundamentada na inspeção da estrutura do código-fonte no repositório. Os alunos investigaram a implementação das classes orquestradoras (como o BaseGraph), a modelagem dos contratos de entrada e saída dos nós, os wrappers de integração de modelos de linguagem e os mecanismos internos de captura de exceções, telemetria e geração de logs.
 
 ### 4. Eixo 4 - Verificação e Validação
 * **Responsável:** Eduardo Ferreira
-* **O que fez:** 
-* **Onde procurou as informações:** 
+* **O que fez:** Conduziu uma auditoria rigorosa das práticas de V&V, atestando o alinhamento com modelos de qualidade (CMMI e MPS.BR). Constatou alta maturidade na Verificação e Segurança Contínua (varreduras com CodeQL e bloqueio de dependências vulneráveis) e na Gestão de Configuração (versionamento automatizado via Semantic Release, uso de uv e twine). Em contrapartida, identificou uma lacuna crítica na Validação: a exclusão de testes de integração na esteira automatizada, evidenciando o risco severo de que falhas não-determinísticas (alucinações da IA) cheguem à produção, fundamentando uma recomendação técnica essencial de melhoria.
+* **Onde procurou as informações:** A investigação concentrou-se na infraestrutura de CI/CD do repositório. O aluno realizou uma análise profunda do diretório .github/workflows/ para mapear os pipelines de release, análise estática e revisão de PRs. Em conjunto, auditou as configurações e filtros do diretório tests/, comprovando que o framework de automação (pytest) limitava sua execução estritamente a testes unitários isolados.
 
 ### 5. Eixo 5 - Qualidade de Software
 * **Responsáveis:** Angelo Mutti e Iuri Maurício
