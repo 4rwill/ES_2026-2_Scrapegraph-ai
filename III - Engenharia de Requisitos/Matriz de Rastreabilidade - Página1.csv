@@ -1,4 +1,0 @@
-ID Requisito,Descrição (Elicitação),Origem (Issue),Proposta (Pull Request),Implementação (Commit),Release,Links para Acesso
-REQ-001,Suporte à OpenAI Batch API,Issue #1036,PR #1039,9d4eba1,v1.60.0-beta.2,https://github.com/ScrapeGraphAI/Scrapegraph-ai/issues/1036
-REQ-002,Controle de Timeout e Retry,Issue #831,(Direto via Commit),21147c4,v1.35.0-beta.1,https://github.com/ScrapeGraphAI/Scrapegraph-ai/issues/831
-REQ-003,Suporte ao provedor Amazon Bedrock,Issue #633,PR #636,63a5d18,v1.19.0-beta.1,https://github.com/ScrapeGraphAI/Scrapegraph-ai/issues/633
