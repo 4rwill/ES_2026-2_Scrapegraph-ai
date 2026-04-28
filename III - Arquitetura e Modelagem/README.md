@@ -44,6 +44,26 @@ elif provider == "ollama":
     return ChatOllama(model=model)
 ```
 
+### C. Padrao Blackboard (Estado Compartilhado)
+Para o tráfego de dados e comunicação entre as camadas, o sistema descarta o acoplamento por passagem direta de parâmetros. A orquestração baseia-se em um dicionário central mutável (o state), onde cada nó declara formalmente seus contratos de entrada e saída. Sob uma perspectiva matemática, a execução do grafo traduz-se em uma sucessão de transformações de estado.
+
+    Localização: Implementado no método _execute_standard em scrapegraphai/graphs/base_graph.py.
+
+    Contrato de Interface: Cada nó em scrapegraphai/nodes/ implementa obrigatoriamente a assinatura execute(self, state: dict) -> dict.
+
+    Funcionamento: O motor de execução percorre o grafo injetando o estado atual no nó. O nó processa sua lógica (ex: limpeza de HTML) e devolve o estado atualizado com novas chaves (ex: parsed_doc), que servirão de insumo para os nós subsequentes. Esse desacoplamento temporal garante que um nó não precise conhecer a implementação do anterior, apenas a estrutura da "lousa".
+
+# Exemplo do loop de execução em base_graph.py
+```python
+while current_node_name:
+    current_node = self._get_node_by_name(current_node_name)
+    # Cada nó atua como um 'especialista' transformando o Blackboard (state)
+    result, node_exec_time, cb_data = self._execute_node(
+        current_node, state, llm_model, llm_model_name
+    )
+    current_node_name = self._get_next_node(current_node, result)
+```
+    
 ## 3. RAG e Integração de Dados
 Devido aos limites de contexto dos LLMs, o sistema implementa *Retrieval-Augmented Generation* (RAG) nativamente através do RAGNode.
 O `RAGNode` é o responsável por comprimir os tokens de entrada.
