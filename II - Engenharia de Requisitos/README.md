@@ -1,4 +1,4 @@
-# 🔍 Eixo 2: Engenharia de Requisitos (GRE)
+## Eixo 2: Engenharia de Requisitos (GRE)
 
 Nesta pasta encontram-se os artefatos de auditoria referentes à Gerência de Requisitos (REQM / MPS.BR) do projeto **ScrapeGraphAI**.
 
