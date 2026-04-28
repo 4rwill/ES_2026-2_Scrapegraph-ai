@@ -2,6 +2,7 @@
 
 **Disciplina:** Engenharia de Software  
 **Projeto Analisado:** [Scrapegraph-ai](https://github.com/ScrapeGraphAI/Scrapegraph-ai)  
+**Auditoria Técnica (Vídeo):** [Drive](https://drive.google.com/file/d/193Tm0rZoRY__IgegmjBemTGkyERR9CJu/view)  
  
 
 ## Integrantes:
